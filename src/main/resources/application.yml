@@ -1,0 +1,20 @@
+debug: true
+
+logging:
+    level:
+        org:
+            springframework:
+                web: DEBUG
+
+security:
+    http:
+        log-request-details: true
+
+server:
+    port: 9095
+
+spring:
+    main:
+        banner-mode: "off"
+    profiles:
+        active: dev
