@@ -1,13 +1,18 @@
 # lazyinit
- 
+This repo is to demo the case of lazy-init exception thrown while accessing a lazily loaded child ORM object which is not initialised properly.
+
+So the controller here exposes 2 endpoints - /parents/child/name/throwsEx & /parents/child/name/correctApproach. 
+
+Former will throw the exception because it tries to access the properties of the child object is lazily loaded through the parent. The latter will ensure the child object is loaded correctly before accessing its properties. 
+
+## Steps to experience the exception 
 1. Run the spring-boot app
-2. Submit a POST to `http://localhost:9095/parents/lazyinitexception`
+2. Submit this curl request `curl /parents/child/name/throwsEx`
 3. Observe the LazyInitException thrown up in the server log
-4. Reason
-   1. This creates the parent object with a child object
-   2. Retrieves the parent object with the 'lazily' loaded child
-   3. Invokes a property on the lazily loaded child object. 
-5. Fix
-   1. Make these call before accessing `child.getName()`
-      1. `Child child = childService.retrieve(fetchedParent.getChild().getId());`
+
+## Steps to experience the correct way of accessing the child property 
+1. Run the spring-boot app
+2. Submit this curl request `curl /parents/child/name/correctApproach`
+3. Notice it returns "thing" which is the name of the child object.
+
 

@@ -1,14 +1,13 @@
 package com.example.lazyinit.service;
 
-import com.example.lazyinit.entity.Child;
-import com.example.lazyinit.entity.Parent;
-import com.example.lazyinit.repository.ChildRepository;
-import com.example.lazyinit.repository.ParentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
-import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.example.lazyinit.entity.Child;
+import com.example.lazyinit.repository.ChildRepository;
 
 @Transactional
 @Service
