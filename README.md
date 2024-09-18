@@ -7,12 +7,12 @@ Former will throw the exception because it tries to access the properties of the
 
 ## Steps to experience the exception 
 1. Run the spring-boot app
-2. Submit this curl POST request `curl /parents/child/name/throwsEx`
+2. Submit this curl request `curl /parents/child/name/throwsEx`
 3. Observe the LazyInitException thrown up in the server log
 
 ## Steps to experience the correct way of accessing the child property 
 1. Run the spring-boot app
-2. Submit this curl POST request `curl /parents/child/name/correctApproach`
+2. Submit this curl request `curl /parents/child/name/correctApproach`
 3. Notice it returns "thing" which is the name of the child object.
 
 
